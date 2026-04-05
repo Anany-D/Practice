@@ -1,0 +1,715 @@
+==================== 1D ARRAY ====================
+
+DECLARE A:ARRAY[5] OF INTEGER
+FOR I FROM 0 TO 4
+    READ A[I]
+ENDFOR
+FOR I FROM 0 TO 4
+    PRINT A[I]
+ENDFOR
+
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int A[] = new int[5];
+
+        for(int i=0;i<5;i++){
+            A[i] = sc.nextInt();
+        }
+
+        for(int i=0;i<5;i++){
+            System.out.print(A[i] + " ");
+        }
+    }
+}
+
+==================== 2D ARRAY ====================
+
+DECLARE A:ARRAY[3][3] OF INTEGER
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        READ A[I][J]
+    ENDFOR
+ENDFOR
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        PRINT A[I][J]
+    ENDFOR
+ENDFOR
+
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int A[][] = new int[3][3];
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                A[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                System.out.print(A[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+==================== ADDING 2 MATRIX ====================
+
+DECLARE X:ARRAY[3][3] OF INTEGER
+DECLARE Y:ARRAY[3][3] OF INTEGER
+DECLARE Z:ARRAY[3][3] OF INTEGER
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        READ X[I][J]
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        READ Y[I][J]
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        Z[I][J] = X[I][J] + Y[I][J]
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        PRINT Z[I][J]
+    ENDFOR
+ENDFOR
+
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int X[][] = new int[3][3];
+        int Y[][] = new int[3][3];
+        int Z[][] = new int[3][3];
+
+        for(int i=0;i<3;i++)
+            for(int j=0;j<3;j++)
+                X[i][j] = sc.nextInt();
+
+        for(int i=0;i<3;i++)
+            for(int j=0;j<3;j++)
+                Y[i][j] = sc.nextInt();
+
+        for(int i=0;i<3;i++)
+            for(int j=0;j<3;j++)
+                Z[i][j] = X[i][j] + Y[i][j];
+
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++)
+                System.out.print(Z[i][j] + " ");
+            System.out.println();
+        }
+    }
+}
+
+==================== EVEN ODD ====================
+
+DECLARE N:INTEGER
+READ N
+IF N MOD 2 = 0
+    PRINT "EVEN"
+ELSE
+    PRINT "ODD"
+ENDIF
+
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+
+        if(n % 2 == 0)
+            System.out.println("Even");
+        else
+            System.out.println("Odd");
+    }
+}
+
+==================== FACTORIAL ====================
+
+FUNCTION FACT(N:INTEGER):INTEGER
+    VAR F:INTEGER
+    F := 1
+    FOR I := 1 TO N DO
+        F := F * I
+    END FOR
+    RETURN F
+END FUNCTION
+
+public class Main {
+    static int fact(int n){
+        int f = 1;
+        for(int i=1;i<=n;i++)
+            f *= i;
+        return f;
+    }
+
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(fact(n));
+    }
+}
+
+==================== PALINDROME NUMBER ====================
+
+DECLARE N, REV, REM, TEMP:INTEGER
+READ N
+TEMP := N
+REV := 0
+
+WHILE N > 0
+    REM := N MOD 10
+    REV := REV * 10 + REM
+    N := N / 10
+ENDWHILE
+
+IF TEMP = REV
+    PRINT "PALINDROME"
+ELSE
+    PRINT "NOT PALINDROME"
+ENDIF
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        int temp = n, rev = 0;
+
+        while(n > 0){
+            int rem = n % 10;
+            rev = rev * 10 + rem;
+            n /= 10;
+        }
+
+        if(temp == rev)
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+    }
+}
+
+==================== REVERSE NUMBER ====================
+
+DECLARE N, REV, REM:INTEGER
+READ N
+REV := 0
+
+WHILE N > 0
+    REM := N MOD 10
+    REV := REV * 10 + REM
+    N := N / 10
+ENDWHILE
+
+PRINT REV
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        int rev = 0;
+
+        while(n > 0){
+            int rem = n % 10;
+            rev = rev * 10 + rem;
+            n /= 10;
+        }
+
+        System.out.println(rev);
+    }
+}
+
+==================== SWAP USING THIRD VARIABLE ====================
+
+DECLARE A, B, TEMP:INTEGER
+READ A, B
+TEMP := A
+A := B
+B := TEMP
+PRINT A, B
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println(a + " " + b);
+    }
+}
+
+==================== SWAP WITHOUT THIRD VARIABLE ====================
+
+DECLARE A, B:INTEGER
+READ A, B
+A := A + B
+B := A - B
+A := A - B
+PRINT A, B
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println(a + " " + b);
+    }
+}
+
+==================== LINEAR SEARCH ====================
+
+DECLARE A:ARRAY[5] OF INTEGER
+DECLARE KEY:INTEGER
+
+FOR I FROM 0 TO 4
+    READ A[I]
+ENDFOR
+
+READ KEY
+
+FOR I FROM 0 TO 4
+    IF A[I] = KEY
+        PRINT "FOUND"
+        STOP
+    ENDIF
+ENDFOR
+
+PRINT "NOT FOUND"
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int A[] = new int[5];
+
+        for(int i=0;i<5;i++)
+            A[i] = sc.nextInt();
+
+        int key = sc.nextInt();
+        boolean found = false;
+
+        for(int i=0;i<5;i++){
+            if(A[i] == key){
+                found = true;
+                break;
+            }
+        }
+
+        if(found)
+            System.out.println("Found");
+        else
+            System.out.println("Not Found");
+    }
+}
+
+==================== MAXIMUM IN ARRAY ====================
+
+DECLARE A:ARRAY[5] OF INTEGER
+DECLARE MAX:INTEGER
+
+FOR I FROM 0 TO 4
+    READ A[I]
+ENDFOR
+
+MAX := A[0]
+
+FOR I FROM 1 TO 4
+    IF A[I] > MAX
+        MAX := A[I]
+    ENDIF
+ENDFOR
+
+PRINT MAX
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int A[] = new int[5];
+
+        for(int i=0;i<5;i++)
+            A[i] = sc.nextInt();
+
+        int max = A[0];
+
+        for(int i=1;i<5;i++){
+            if(A[i] > max)
+                max = A[i];
+        }
+
+        System.out.println(max);
+    }
+}
+
+==================== COUNT DIGITS ====================
+
+DECLARE N, COUNT:INTEGER
+READ N
+COUNT := 0
+
+WHILE N > 0
+    N := N / 10
+    COUNT := COUNT + 1
+ENDWHILE
+
+PRINT COUNT
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        int count = 0;
+
+        while(n > 0){
+            n /= 10;
+            count++;
+        }
+
+        System.out.println(count);
+    }
+}
+
+==================== SUM OF SERIES (1 + 1/2 + ... + 1/n) ====================
+
+FUNCTION SUMOFN(n:INTEGER):REAL
+    VAR SUM:REAL
+    SUM := 0
+
+    FOR I := 1 TO N DO
+        SUM := SUM + 1/I
+    END FOR
+
+    RETURN SUM
+END FUNCTION
+
+public class Main {
+    static double sumOfSeries(int n){
+        double sum = 0;
+        for(int i=1;i<=n;i++){
+            sum += 1.0/i;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(sumOfSeries(n));
+    }
+}
+
+==================== SUM OF SERIES 2 (1 + 2 + ... + n) ====================
+
+FUNCTION SUMSQUARE(n:INTEGER):INTEGER
+    VAR SUM:INTEGER
+    SUM := 0
+
+    FOR I := 1 TO N DO
+        SUM := SUM + I
+    END FOR
+
+    RETURN SUM
+END FUNCTION
+
+public class Main {
+    static int sumSquare(int n){
+        int sum = 0;
+        for(int i=1;i<=n;i++){
+            sum += i;
+        }
+        return sum;
+    }
+
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(sumSquare(n));
+    }
+}
+
+==================== ABSOLUTE VALUE ====================
+
+FUNCTION ABSVAL(N:INTEGER):INTEGER
+    IF N < 0
+        RETURN -N
+    ELSE
+        RETURN N
+    ENDIF
+END FUNCTION
+
+public class Main {
+    static int absVal(int n){
+        if(n < 0)
+            return -n;
+        else
+            return n;
+    }
+
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(absVal(n));
+    }
+}
+
+==================== PALINDROME STRING ====================
+
+DECLARE STR:STRING
+READ STR
+REV := ""
+
+FOR I FROM LENGTH(STR)-1 TO 0
+    REV := REV + STR[I]
+ENDFOR
+
+IF STR = REV
+    PRINT "PALINDROME"
+ELSE
+    PRINT "NOT PALINDROME"
+ENDIF
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        String str = sc.next();
+        String rev = "";
+
+        for(int i=str.length()-1;i>=0;i--){
+            rev += str.charAt(i);
+        }
+
+        if(str.equals(rev))
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+    }
+}
+
+==================== AREA OF CIRCLE ====================
+
+DECLARE R:REAL
+READ R
+AREA := 3.14 * R * R
+PRINT AREA
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        double r = sc.nextDouble();
+        double area = 3.14 * r * r;
+        System.out.println(area);
+    }
+}
+
+==================== AREA OF RECTANGLE ====================
+
+DECLARE L, B:REAL
+READ L, B
+AREA := L * B
+PRINT AREA
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        double l = sc.nextDouble();
+        double b = sc.nextDouble();
+        System.out.println(l * b);
+    }
+}
+
+==================== AREA OF TRIANGLE ====================
+
+DECLARE B, H:REAL
+READ B, H
+AREA := 0.5 * B * H
+PRINT AREA
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        double b = sc.nextDouble();
+        double h = sc.nextDouble();
+        System.out.println(0.5 * b * h);
+    }
+}
+
+==================== 3D ARRAY ====================
+
+DECLARE A:ARRAY[2][2][2] OF INTEGER
+
+FOR I FROM 0 TO 1
+    FOR J FROM 0 TO 1
+        FOR K FROM 0 TO 1
+            READ A[I][J][K]
+        ENDFOR
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 1
+    FOR J FROM 0 TO 1
+        FOR K FROM 0 TO 1
+            PRINT A[I][J][K]
+        ENDFOR
+    ENDFOR
+ENDFOR
+
+public class Main {
+    public static void main(String[] args) {
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int A[][][] = new int[2][2][2];
+
+        for(int i=0;i<2;i++)
+            for(int j=0;j<2;j++)
+                for(int k=0;k<2;k++)
+                    A[i][j][k] = sc.nextInt();
+
+        for(int i=0;i<2;i++){
+            for(int j=0;j<2;j++){
+                for(int k=0;k<2;k++){
+                    System.out.print(A[i][j][k] + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
+
+==================== PASSWORD CHECK ====================
+
+DECLARE PASSWORD:STRING
+READ PASSWORD
+
+IF LENGTH(PASSWORD) >= 8
+    PRINT "VALID PASSWORD"
+ELSE
+    PRINT "INVALID PASSWORD"
+ENDIF
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        String password = sc.next();
+
+        if(password.length() >= 8)
+            System.out.println("Valid Password");
+        else
+            System.out.println("Invalid Password");
+    }
+}
+
+==================== FUNCTION FOR FACTORIAL ====================
+
+FUNCTION FACT(N:INTEGER):INTEGER
+    VAR F:INTEGER
+    F := 1
+
+    FOR I := 1 TO N DO
+        F := F * I
+    END FOR
+
+    RETURN F
+END FUNCTION
+
+public class Main {
+
+    static int fact(int n){
+        int f = 1;
+        for(int i=1;i<=n;i++){
+            f *= i;
+        }
+        return f;
+    }
+
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(fact(n));
+    }
+}
+
+==================== SUBTRACTING 2 MATRIX ====================
+
+DECLARE X:ARRAY[3][3] OF INTEGER
+DECLARE Y:ARRAY[3][3] OF INTEGER
+DECLARE Z:ARRAY[3][3] OF INTEGER
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        READ X[I][J]
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        READ Y[I][J]
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        Z[I][J] = X[I][J] - Y[I][J]
+    ENDFOR
+ENDFOR
+
+FOR I FROM 0 TO 2
+    FOR J FROM 0 TO 2
+        PRINT Z[I][J]
+    ENDFOR
+ENDFOR
+
+public class Main {
+    public static void main(String[] args){
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+
+        int X[][] = new int[3][3];
+        int Y[][] = new int[3][3];
+        int Z[][] = new int[3][3];
+
+        // Input Matrix X
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                X[i][j] = sc.nextInt();
+            }
+        }
+
+        // Input Matrix Y
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                Y[i][j] = sc.nextInt();
+            }
+        }
+
+        // Subtraction
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                Z[i][j] = X[i][j] - Y[i][j];
+            }
+        }
+
+        // Output Result
+        for(int i=0;i<3;i++){
+            for(int j=0;j<3;j++){
+                System.out.print(Z[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
